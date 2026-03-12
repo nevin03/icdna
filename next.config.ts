@@ -23,6 +23,14 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'lh3.googleusercontent.com',
       },
+      {
+        protocol: 'http',
+        hostname: 'shopadmin.inygo.in',
+      },
+      {
+        protocol: 'https',
+        hostname: 'shopadmin.inygo.in',
+      },
     ],
   },
 
