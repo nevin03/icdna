@@ -1,4 +1,4 @@
-const PROJECT_NAME = 'dinehub';
+const PROJECT_NAME = 'ICDNA';
 const MAIN_URL = `https://george-fx.github.io/APIs/${PROJECT_NAME}`;
 
 const GET_MENU = `${MAIN_URL}/api/menu.json`;

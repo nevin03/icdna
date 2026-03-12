@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import React from 'react';
-import Image from 'next/image';
 
 import { svg } from '../../svg';
 // import { Routes } from '../../routes';
@@ -31,7 +30,7 @@ export const SignInWithGoogle: React.FC = () => {
     try {
       // Create a special callback page that handles the routing logic
       const currentUrl = window.location.origin;
-      const callbackUrl = `${currentUrl}/sign-in/callback?autherization=processing`;
+      const callbackUrl = `${currentUrl}/sign-in/callback?authorization=processing`;
       
       await signIn('google', {
         callbackUrl: callbackUrl,
@@ -71,15 +70,12 @@ export const SignInWithGoogle: React.FC = () => {
         overflow: 'hidden',
         boxShadow: '0 3px 8px rgba(0, 0, 0, 0.08)'
       }}>
-        <Image
-          src="/icons/logo-non-bg.png"
-          alt="Home Icon"
-          width={60}
-          height={60}
-          style={{ cursor: "pointer", borderRadius: '50%', objectFit: 'cover' }}
-          onClick={() => {}}
-          priority 
-        />
+        <div 
+          className="logo-bg-animated"
+          style={{ width: '100%', height: '100%', fontSize: '32px' }}
+        >
+          ICDNA
+        </div>
       </div>
     );
   };

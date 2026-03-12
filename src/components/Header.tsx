@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import Image from 'next/image';
 import Cookies from 'js-cookie';
 // Navigation is handled by tracked router from hooks
 
@@ -60,55 +59,24 @@ export const Header: React.FC<Props> = ({
   const renderUser = () => {
     if (!user && !userName) return null;
 
-    if (isAuthenticated()) {
-      // Authenticated: App icon (square) + User profile image (circular) + Username
-      return (
-        <button
-          style={{ position: 'absolute', left: 0, padding: 20 }}
-          onClick={() => {
-            openModal();
-          }}
-        >
-          <div
-            style={{ gap: 10, alignItems: 'center', display: 'flex' }}
-            className='clickable'
-          >
-            {/* App Icon - Square/Box with subtle animated arrow */}
-            <div style={{ position: 'relative' }}>
-              <Image
-                src='/icons/logo-non-bg.png'
-                alt='Logo'
-                width={50}
-                height={50}
-                style={{
-                  borderRadius: '50%',
-                  objectFit: 'cover'
-                }}
-              />
-            </div>
-          </div>
-        </button>
-      );
-    } else {
-      // Non-authenticated: App icon only (circular as before)
-      return (
-        <button
-          style={{ position: 'absolute', left: 0, padding: 20 }}
-          onClick={() => {
-            openModal();
-          }}
-        >
-          <Image
-            src='/icons/logo-non-bg.png'
-            priority={true}
-            alt='App Icon'
-            width={45}
-            height={45}
-            style={{ borderRadius: '50%' }}
-          />
-        </button>
-      );
-    }
+    return (
+      <button
+        style={{ 
+          position: 'absolute', 
+          left: 0, 
+          padding: '0 20px', 
+          height: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          color: '#0C1D2E'
+        }}
+        onClick={() => {
+          openModal();
+        }}
+      >
+        <svg.MenuSvg />
+      </button>
+    );
   };
 
   const renderTitle = () => {

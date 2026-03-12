@@ -12,7 +12,7 @@ export const DollarSvg: React.FC = () => {
         <rect
           width={34}
           height={34}
-          fill='#06402B'
+          fill='#00b4cc'
           rx={6}
         />
         <g

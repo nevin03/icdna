@@ -14,7 +14,7 @@ export const PinLocationSvg: React.FC = () => {
           <rect
           width={40}
           height={40}
-          fill='#06402B'
+          fill='#00b4cc'
           rx={8}
           />
           <line x1={2 + 8} x2={5 + 8} y1={12 + 8} y2={12 + 8} />

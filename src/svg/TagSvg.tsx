@@ -13,7 +13,7 @@ export const TagSvg: React.FC = () => {
         <rect
           width={40}
           height={40}
-          fill='#06402B'
+          fill='#00b4cc'
           rx={8}
         />
         <path

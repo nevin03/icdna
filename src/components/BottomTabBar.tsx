@@ -85,12 +85,12 @@ export const BottomTabBar: React.FC = () => {
                 <tab.icon
                   fillColor={
                     screen === tab.name
-                      ? 'var(--main-turquoise)'
+                      ? 'var(--main-color)'
                       : 'var(--text-color)'
                   }
                   strokeColor={
                     screen === tab.name
-                      ? 'var(--main-turquoise)'
+                      ? 'var(--main-color)'
                       : 'var(--text-color)'
                   }
                 />
@@ -100,7 +100,7 @@ export const BottomTabBar: React.FC = () => {
                     marginTop: 3,
                     color:
                       screen === tab.name
-                        ? 'var(--main-turquoise)'
+                        ? 'var(--main-color)'
                         : 'var(--text-color)',
                   }}
                 >

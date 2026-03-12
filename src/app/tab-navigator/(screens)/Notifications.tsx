@@ -98,7 +98,7 @@ export const Notifications: React.FC = () => {
               }}
             >
               <svg.BellTabSvg 
-                fillColor='var(--primary-color)' 
+                fillColor='var(--main-color)' 
                 // style={{ width: '36px', height: '36px' }}
               />
             </div>

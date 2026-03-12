@@ -430,6 +430,20 @@ svg {
   animation: moveGradient 12s linear infinite;
 }
 
+.logo-bg-animated {
+  background: linear-gradient(to right, var(--main-color), var(--main-dark), var(--main-color));
+  background-size: 200% auto;
+  animation: moveGradient 6s linear infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  color: white;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
 // / Loading spinner animation for notification toggle
 @keyframes spin {
   0% {

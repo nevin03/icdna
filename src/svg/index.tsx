@@ -41,6 +41,7 @@ import { HeaderBasketSvg } from './HeaderBasketSvg';
 import { ApplyPromocodeSvg } from './ApplyPromocodeSvg';
 import { NotificationCheckSvg } from './NotificationCheckSvg';
 import { BuildingSvg } from './BuildingSvg';
+import { MenuSvg } from './MenuSvg';
 import { LandmarkSvg } from './LandmarkSvg';
 
 import { HomeTabSvg } from './tabs/HomeTabSvg';
@@ -108,5 +109,6 @@ export const svg = {
   ShoppingCartSvg,
   ForkSvg,
   BuildingSvg,
-  LandmarkSvg
+  LandmarkSvg,
+  MenuSvg
 };
