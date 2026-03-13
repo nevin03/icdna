@@ -13,14 +13,6 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'george-fx.github.io',
-      },
-      {
-        protocol: 'https',
-        hostname: 'admin.thomsonscasastore.com',
-      },
-      {
-        protocol: 'https',
         hostname: 'lh3.googleusercontent.com',
       },
       {
@@ -30,10 +22,6 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'shopadmin.inygo.in',
-      },
-      {
-        protocol: 'https',
-        hostname: 'admin.jewelsandlooms.com',
       },
     ],
   },
