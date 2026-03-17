@@ -286,7 +286,11 @@ export const CreateProfile: React.FC = () => {
             inputType='username'
             value={userData.name}
             placeholder='Enter your full name'
-            containerStyle={{ marginBottom: validationErrors.name ? 4 : 14 }}
+            containerStyle={{
+              marginBottom: validationErrors.name ? 4 : 14,
+              border: validationErrors.name ? '2px solid #C53030' : undefined,
+              backgroundColor: validationErrors.name ? '#FFF5F5' : undefined
+            }}
             onChange={(e) => {
               setUserData(pre => ({ ...pre, name: e.target.value }))
               handleFormInput(e)
@@ -313,7 +317,11 @@ export const CreateProfile: React.FC = () => {
             inputType='email'
             placeholder='Email'
             value={userData.email}
-            containerStyle={{ marginBottom: validationErrors.email ? 4 : 14 }}
+            containerStyle={{
+              marginBottom: validationErrors.email ? 4 : 14,
+              border: validationErrors.email ? '2px solid #C53030' : undefined,
+              backgroundColor: validationErrors.email ? '#FFF5F5' : undefined
+            }}
             onChange={(e) => {
               setUserData(pre => ({ ...pre, email: e.target.value }))
               handleFormInput(e)
@@ -339,7 +347,11 @@ export const CreateProfile: React.FC = () => {
             name='mobile_number'
             inputType='phone'
             placeholder='Phone number'
-            containerStyle={{ marginBottom: validationErrors.mobile_number ? 4 : 14 }}
+            containerStyle={{
+              marginBottom: validationErrors.mobile_number ? 4 : 14,
+              border: validationErrors.mobile_number ? '2px solid #C53030' : undefined,
+              backgroundColor: validationErrors.mobile_number ? '#FFF5F5' : undefined
+            }}
             onChange={(e) => {
               setUserData(pre => ({ ...pre, mobile_number: e.target.value }))
               handleFormInput(e)
@@ -394,7 +406,11 @@ export const CreateProfile: React.FC = () => {
             name='address'
             placeholder='Your address'
             inputType='location'
-            containerStyle={{ marginBottom: validationErrors.address ? 4 : 20 }}
+            containerStyle={{
+              marginBottom: validationErrors.address ? 4 : 20,
+              border: validationErrors.address ? '2px solid #C53030' : undefined,
+              backgroundColor: validationErrors.address ? '#FFF5F5' : undefined
+            }}
             onChange={(e) => {
               setUserData(pre => ({ ...pre, address: e.target.value }))
               handleFormInput(e)
@@ -619,13 +635,31 @@ export const CreateProfile: React.FC = () => {
             type='text'
             name='referral_code'
             inputType='promocode'
-            placeholder='Enter referral code (optional)'
-            containerStyle={{ marginBottom: 0 }}
+            placeholder='Enter referral code'
+            containerStyle={{
+              marginBottom: validationErrors.referral_code ? 4 : 0,
+              border: validationErrors.referral_code ? '2px solid #C53030' : undefined,
+              backgroundColor: validationErrors.referral_code ? '#FFF5F5' : undefined
+            }}
             onChange={(e) => {
               setUserData(pre => ({ ...pre, referral_code: e.target.value }))
               handleFormInput(e)
+              if (validationErrors.referral_code) {
+                setValidationErrors(prev => ({ ...prev, referral_code: '' }));
+              }
             }}
           />
+          {validationErrors.referral_code && (
+            <div style={{
+              color: '#C53030',
+              fontSize: '12px',
+              marginBottom: '0px',
+              marginTop: '4px',
+              fontFamily: 'var(--font-dm-sans)',
+            }}>
+              ⚠️ {validationErrors.referral_code}
+            </div>
+          )}
         </section>
 
         <section
