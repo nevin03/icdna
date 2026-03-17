@@ -288,8 +288,8 @@ export const CreateProfile: React.FC = () => {
             placeholder='Enter your full name'
             containerStyle={{
               marginBottom: validationErrors.name ? 4 : 14,
-              border: validationErrors.name ? '2px solid #C53030' : undefined,
-              backgroundColor: validationErrors.name ? '#FFF5F5' : undefined
+              border: validationErrors.name ? '2px solid #C53030' : '1px solid #E5E7EB',
+              backgroundColor: validationErrors.name ? '#FFF5F5' : 'var(--white-color)'
             }}
             onChange={(e) => {
               setUserData(pre => ({ ...pre, name: e.target.value }))
@@ -319,8 +319,8 @@ export const CreateProfile: React.FC = () => {
             value={userData.email}
             containerStyle={{
               marginBottom: validationErrors.email ? 4 : 14,
-              border: validationErrors.email ? '2px solid #C53030' : undefined,
-              backgroundColor: validationErrors.email ? '#FFF5F5' : undefined
+              border: validationErrors.email ? '2px solid #C53030' : '1px solid #E5E7EB',
+              backgroundColor: validationErrors.email ? '#FFF5F5' : 'var(--white-color)'
             }}
             onChange={(e) => {
               setUserData(pre => ({ ...pre, email: e.target.value }))
@@ -349,8 +349,8 @@ export const CreateProfile: React.FC = () => {
             placeholder='Phone number'
             containerStyle={{
               marginBottom: validationErrors.mobile_number ? 4 : 14,
-              border: validationErrors.mobile_number ? '2px solid #C53030' : undefined,
-              backgroundColor: validationErrors.mobile_number ? '#FFF5F5' : undefined
+              border: validationErrors.mobile_number ? '2px solid #C53030' : '1px solid #E5E7EB',
+              backgroundColor: validationErrors.mobile_number ? '#FFF5F5' : 'var(--white-color)'
             }}
             onChange={(e) => {
               setUserData(pre => ({ ...pre, mobile_number: e.target.value }))
@@ -379,8 +379,8 @@ export const CreateProfile: React.FC = () => {
             inputType='building'
             containerStyle={{
               marginBottom: validationErrors.building_number ? 4 : 20,
-              border: validationErrors.building_number ? '2px solid #C53030' : undefined,
-              backgroundColor: validationErrors.building_number ? '#FFF5F5' : undefined
+              border: validationErrors.building_number ? '2px solid #C53030' : '1px solid #E5E7EB',
+              backgroundColor: validationErrors.building_number ? '#FFF5F5' : 'var(--white-color)'
             }}
             onChange={(e) => {
               setUserData(pre => ({ ...pre, building_number: e.target.value }))
@@ -408,8 +408,8 @@ export const CreateProfile: React.FC = () => {
             inputType='location'
             containerStyle={{
               marginBottom: validationErrors.address ? 4 : 20,
-              border: validationErrors.address ? '2px solid #C53030' : undefined,
-              backgroundColor: validationErrors.address ? '#FFF5F5' : undefined
+              border: validationErrors.address ? '2px solid #C53030' : '1px solid #E5E7EB',
+              backgroundColor: validationErrors.address ? '#FFF5F5' : 'var(--white-color)'
             }}
             onChange={(e) => {
               setUserData(pre => ({ ...pre, address: e.target.value }))
@@ -438,8 +438,8 @@ export const CreateProfile: React.FC = () => {
             inputType='landmark'
             containerStyle={{
               marginBottom: validationErrors.landmark ? 4 : 20,
-              border: validationErrors.landmark ? '2px solid #C53030' : undefined,
-              backgroundColor: validationErrors.landmark ? '#FFF5F5' : undefined
+              border: validationErrors.landmark ? '2px solid #C53030' : '1px solid #E5E7EB',
+              backgroundColor: validationErrors.landmark ? '#FFF5F5' : 'var(--white-color)'
             }}
             onChange={(e) => {
               setUserData(pre => ({ ...pre, landmark: e.target.value }))
@@ -467,8 +467,8 @@ export const CreateProfile: React.FC = () => {
             inputType='pin-number'
             containerStyle={{
               marginBottom: validationErrors.pincode ? 4 : 0,
-              border: validationErrors.pincode ? '2px solid #C53030' : undefined,
-              backgroundColor: validationErrors.pincode ? '#FFF5F5' : undefined
+              border: validationErrors.pincode ? '2px solid #C53030' : '1px solid #E5E7EB',
+              backgroundColor: validationErrors.pincode ? '#FFF5F5' : 'var(--white-color)'
             }}
             onChange={(e) => {
               setUserData(pre => ({ ...pre, pincode: e.target.value }))
@@ -635,31 +635,17 @@ export const CreateProfile: React.FC = () => {
             type='text'
             name='referral_code'
             inputType='promocode'
-            placeholder='Enter referral code'
+            placeholder='Enter referral code (optional)'
             containerStyle={{
-              marginBottom: validationErrors.referral_code ? 4 : 0,
-              border: validationErrors.referral_code ? '2px solid #C53030' : undefined,
-              backgroundColor: validationErrors.referral_code ? '#FFF5F5' : undefined
+              marginBottom: 0,
+              border: '1px solid #E5E7EB',
+              backgroundColor: 'var(--white-color)'
             }}
             onChange={(e) => {
               setUserData(pre => ({ ...pre, referral_code: e.target.value }))
               handleFormInput(e)
-              if (validationErrors.referral_code) {
-                setValidationErrors(prev => ({ ...prev, referral_code: '' }));
-              }
             }}
           />
-          {validationErrors.referral_code && (
-            <div style={{
-              color: '#C53030',
-              fontSize: '12px',
-              marginBottom: '0px',
-              marginTop: '4px',
-              fontFamily: 'var(--font-dm-sans)',
-            }}>
-              ⚠️ {validationErrors.referral_code}
-            </div>
-          )}
         </section>
 
         <section
