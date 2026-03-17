@@ -661,7 +661,6 @@ export const CreateProfile: React.FC = () => {
         >
           <components.Button
             label='save changes'
-            href={Routes.TAB_NAVIGATOR}
             loading={saveLoading}
             loadingLabel='Saving...'
             containerStyle={{ marginBottom: 0 }}
