@@ -5,8 +5,11 @@ import { stores } from '../../../stores'; // Updated import path
 import { svg } from '../../../svg';
 import { components } from '../../../components';
 import { NotificationType } from '@/types/NotificationType'; // Import NotificationType
+import Cookies from 'js-cookie';
+import { useRouter } from 'next/navigation';
 
 export const Notifications: React.FC = () => {
+  const router = useRouter();
   const { notifications, error } = stores.useNotificationStore(); // Use the new store
 
   // Removed useState for readNotifications as is_seen is now part of the API response
@@ -33,6 +36,83 @@ export const Notifications: React.FC = () => {
   };
 
   const renderContent = () => {
+    const isAuthenticated = !!Cookies.get('authToken');
+
+    if (!isAuthenticated) {
+      return (
+        <main 
+          className='container scrollable' 
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <div 
+            style={{
+              textAlign: 'center',
+              padding: '40px 32px',
+              background: '#ffffff',
+              borderRadius: '20px',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.08)',
+              maxWidth: '360px',
+              width: '90%',
+              margin: '0 auto',
+              border: '1px solid #f1f5f9'
+            }}
+          >
+            <div style={{ marginBottom: '24px' }}>
+              <div 
+                style={{
+                  width: '80px',
+                  height: '80px',
+                  background: '#f8fafc',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '0 auto',
+                  border: '2px solid #e2e8f0'
+                }}
+              >
+                <svg.BellTabSvg fillColor='var(--main-color)' />
+              </div>
+            </div>
+            
+            <h2 
+              style={{
+                fontSize: '22px',
+                fontWeight: '600',
+                color: '#1e293b',
+                marginBottom: '12px',
+                letterSpacing: '-0.01em'
+              }}
+            >
+              Sign In Required
+            </h2>
+            
+            <p 
+              style={{
+                color: '#64748b',
+                fontSize: '16px',
+                lineHeight: '1.5',
+                fontWeight: '400',
+                marginBottom: '24px'
+              }}
+            >
+              Please sign in to view your notifications and stay updated.
+            </p>
+
+            <components.Button 
+              label="Sign In"
+              onClick={() => router.push('/sign-in')}
+            />
+          </div>
+        </main>
+      );
+    }
+
     // Priority 1: Error state
     if (error) {
       return (

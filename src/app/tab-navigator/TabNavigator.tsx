@@ -56,7 +56,7 @@ export const TabNavigator: React.FC = React.memo(() => {
     const screenParam = searchParams.get('screen') || 'Home';
     setScreen(screenParam);
 
-    if (screenParam === TabScreens.NOTIFICATIONS) {
+    if (screenParam === TabScreens.NOTIFICATIONS && !!Cookies.get('authToken')) {
       fetchNotifications();
     }
   }, [searchParams, setScreen, fetchNotifications]);
