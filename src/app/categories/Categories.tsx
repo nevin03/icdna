@@ -3,13 +3,26 @@
 import React from 'react';
 import Link from 'next/link';
 
+import { useSearchParams } from 'next/navigation';
+
 import { hooks } from '../../hooks';
 import { Routes } from '../../routes';
 import { components } from '../../components';
 import { items } from '../../items';
 
 export const Categories: React.FC = () => {
-  const { category, categoryFetchingStatus } = hooks.useGetMenu();
+  const searchParams = useSearchParams();
+  const params = React.useMemo(() => {
+    const p: Record<string, any> = { page_size: 12 };
+    searchParams.forEach((value, key) => {
+      p[key] = value;
+    });
+    return p;
+  }, [searchParams]);
+
+  const { category, categoryFetchingStatus } = hooks.useGetMenu(params);
+
+
 
   const renderHeader = () => {
     return (

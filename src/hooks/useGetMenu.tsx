@@ -6,7 +6,7 @@ import { createApiService } from '@/lib/axios/apiService';
 
 const publicApiService = createApiService(noAuthClient);
 
-export const useGetMenu = (): { categoryFetchingStatus: boolean; category: MenuType[] } => {
+export const useGetMenu = (params?: Record<string, any>): { categoryFetchingStatus: boolean; category: MenuType[] } => {
   const [category, setCategory] = useState<MenuType[]>([]);
   const [categoryFetchingStatus, setCategoryFetchingStatus] = useState<boolean>(false);
 
@@ -14,8 +14,9 @@ export const useGetMenu = (): { categoryFetchingStatus: boolean; category: MenuT
     const getMainCategory = async () => {
       setCategoryFetchingStatus(true);
       try {
-        const res = await publicApiService.get<{ categories: MenuType[] }>(urls['all-category']);
+        const res = await publicApiService.get<{ categories: MenuType[] }>(urls['all-category'], { params });
         setCategory(res.categories);
+
       } catch (error) {
         console.error('Failed to fetch categories:', error);
         setCategory([]);
@@ -25,7 +26,8 @@ export const useGetMenu = (): { categoryFetchingStatus: boolean; category: MenuT
     };
 
     getMainCategory();
-  }, []); // optional: depends if this needs to refetch on categoryId change
+  }, [JSON.stringify(params)]); // refetch if params change
 
   return { categoryFetchingStatus, category };
 };
+

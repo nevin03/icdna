@@ -1,5 +1,11 @@
+import { Suspense } from 'react';
 import { Categories } from './Categories';
 
 export default function CategoriesPage() {
-  return <Categories />;
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Categories />
+    </Suspense>
+  );
 }
+
