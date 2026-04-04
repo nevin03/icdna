@@ -17,7 +17,7 @@ export const useGetDishes = () => {
     setDishesLoading(true);
 
     try {
-      const res = await publicApiService.get<{products : ProductType[]}>(urls['recomended-product'])
+      const res = await publicApiService.get<{products : ProductType[]}>(urls['recomended-product'], { params: { page_size: 12 } })
       
       setDishes(res.products);
     } catch (error) {

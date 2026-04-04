@@ -501,7 +501,7 @@ export const Home: React.FC = React.memo(() => {
               margin: '0px 20px'
             }}
           >
-            {[0, 1].map((placeholderKey) => (
+            {[0, 1, 2, 3].map((placeholderKey) => (
               <items.ItemGrid
                 isLoading={true}
                 key={`skeleton-${placeholderKey}`}
