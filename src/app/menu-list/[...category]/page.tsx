@@ -2,13 +2,14 @@ import type { Metadata } from 'next';
 import { MenuList } from './MenuList';
 
 type PageProps = {
-  params: Promise<{ category: string }>;
+  params: Promise<{ category: string[] }>;
   searchParams: Promise<{ id?: string }>;
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { category } = await params;
-  const decodedCategory = decodeURIComponent(category);
+  const fullCategory = Array.isArray(category) ? category.join('/') : category;
+  const decodedCategory = decodeURIComponent(fullCategory);
   return {
     title: decodedCategory,
     description: `List of menu items for ${decodedCategory}.`,
@@ -20,5 +21,7 @@ export default async function Page({ params, searchParams }: PageProps) {
   const { id } = await searchParams;
   const categoryId = id || '0';
 
-  return <MenuList category={decodeURIComponent(category)} category_id={parseInt(categoryId)} />;
+  const fullCategory = Array.isArray(category) ? category.join('/') : category;
+
+  return <MenuList category={decodeURIComponent(fullCategory)} category_id={parseInt(categoryId)} />;
 }

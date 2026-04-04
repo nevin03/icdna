@@ -80,7 +80,7 @@ export const Categories: React.FC = () => {
               return (
                 <Link
                   key={item.id}
-                  href={`${Routes.MENU_LIST}/${item.name}?id=${item.id}`}
+                  href={`${Routes.MENU_LIST}/${encodeURIComponent(item.name)}?id=${item.id}`}
                   className="clickable"
                   style={{
                     position: 'relative',
